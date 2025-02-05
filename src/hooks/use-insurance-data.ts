@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { fetchClaims } from '../lib/api/dentalxchange';
 
 export const useInsuranceData = () => {
-  const [claims, setClaims] = useState([]);
+  const [claims] = useState([]);
   const [metrics, setMetrics] = useState({
     totalClaims: 0,
     pendingClaims: 0,
@@ -17,8 +16,6 @@ export const useInsuranceData = () => {
   useEffect(() => {
     const loadInsuranceData = async () => {
       try {
-        const claimsData = await fetchClaims({});
-        setClaims(claimsData);
         // Calculate metrics from claims data
         // This would be replaced with actual API calls in production
         setMetrics({

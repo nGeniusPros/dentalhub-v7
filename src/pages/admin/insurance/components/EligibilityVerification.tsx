@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import { Button } from '../../../../components/ui/button';
-import { fetchEligibility } from '../../../../lib/api/dentalxchange';
 
 export const EligibilityVerification = () => {
   const [patientId, setPatientId] = useState('');
@@ -11,7 +10,6 @@ export const EligibilityVerification = () => {
   const handleVerify = async () => {
     setLoading(true);
     try {
-      const eligibility = await fetchEligibility(patientId);
       // Handle eligibility response
     } catch (error) {
       console.error('Error verifying eligibility:', error);
