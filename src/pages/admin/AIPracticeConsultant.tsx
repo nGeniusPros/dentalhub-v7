@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import { Button } from '../../components/ui/button';
-import { AIConsultantChat } from '../../components/ai/AIConsultantChat';
+import { HeadOrchestratorChat, SubAgentsGrid } from '../../components/ai/AIConsultantPage';
 
 const quickQuestions = [
   {
@@ -64,13 +64,13 @@ const AIPracticeConsultant = () => {
         className="flex items-center justify-between"
       >
         <div>
-          <h1 className="text-2xl font-bold bg-gradient-primary text-transparent bg-clip-text">
+          <h1 className="text-2xl font-bold bg-gradient-corporate text-transparent bg-clip-text">
             AI Practice Consultant
           </h1>
           <p className="text-gray-500 mt-1">Get expert insights and recommendations</p>
         </div>
         <Button 
-          className="bg-gradient-primary text-white hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-200 font-medium"
+          className="bg-gradient-corporate text-white hover:opacity-90 shadow-glow hover:shadow-glow-lg transition-all duration-200 font-medium"
         >
           <Icons.RefreshCw className="w-4 h-4 mr-2" />
           Refresh Analysis
@@ -79,7 +79,7 @@ const AIPracticeConsultant = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-6">
-          <AIConsultantChat selectedQuestion={selectedQuestion} />
+          <HeadOrchestratorChat selectedQuestion={selectedQuestion} />
 
           {/* Practice Metrics */}
           <motion.div
@@ -102,7 +102,7 @@ const AIPracticeConsultant = () => {
                 >
                   <div className="flex items-center justify-between mb-2">
                     {React.createElement(Icons[metric.icon as keyof typeof Icons], {
-                      className: "w-5 h-5 text-primary"
+                      className: "w-5 h-5 text-navy"
                     })}
                     <span className="text-green-600 text-sm font-medium">{metric.trend}</span>
                   </div>
@@ -112,6 +112,8 @@ const AIPracticeConsultant = () => {
               ))}
             </div>
           </motion.div>
+
+          <SubAgentsGrid />
         </div>
 
         <motion.div
